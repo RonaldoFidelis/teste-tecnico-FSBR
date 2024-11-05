@@ -59,14 +59,39 @@
 - **Validação de Dados**: Valida se os campos obrigatórios estão preenchidos antes do envio do formulário. Caso contrário, mensagens de erro são exibidas ao usuário.
 
 - **Integração com ViaCep**: Utiliza a API do ViaCep para preencher automaticamente os campos de endereço com base no CEP informado, facilitando o cadastro de clientes.
+Aqui está uma versão aprimorada das instruções:
 
 ## Como executar o projeto:
 
-1. Instale o banco de dados H2;
-2. Instale o Tomcat - Extraia o conteúdo em um diretório de sua escolha;
-3. Copie o arquivo .war para o Tomcat - Copie o arquivo .war para pasta "tomcat/webapps";
-4. Inicie o Tomcat vá até o diretório bin do Tomcat e execute o comando de inicialização apropriado: startup.bat
-5. Acesse o projeto pelo: http://localhost:8080/nome-do-arquivo-war
+### Pré-requisitos
+- Java 8 ou superior
+- Banco de dados H2
+- Apache Tomcat 9.0 ou superior
+
+### Passos para execução:
+
+1. **Instale o Banco de Dados H2:** Baixe e configure o H2 conforme a documentação oficial.
+
+2. **Instale o Apache Tomcat:**
+   - Baixe o Tomcat 9.0 ou superior.
+   - Extraia o conteúdo do arquivo baixado em um diretório de sua preferência.
+
+3. **Copie o arquivo `.war`:**
+   - Coloque o arquivo `.war` do projeto na pasta `webapps` dentro do diretório de instalação do Tomcat.
+
+4. **Inicie o Tomcat:**
+   - Acesse o diretório `bin` dentro da pasta do Tomcat e execute o comando de inicialização adequado para o seu sistema operacional:
+     - No Windows:
+       ```bash
+       startup.bat
+       ```
+     - No Linux/Mac:
+       ```bash
+       ./startup.sh
+       ```
+
+5. **Acesse o Projeto:**
+   - Abra um navegador e acesse o projeto pelo link: [http://localhost:8080/nome-do-arquivo-war](http://localhost:8080/nome-do-arquivo-war).
 
 ## 🚀 Tecnologias utilizadas:
 
@@ -79,7 +104,7 @@
 * **[API ViaCEP](https://viacep.com.br/)**
 * **[Tomcat](https://tomcat.apache.org/)**
 
-## 📝 Maiores aprendizados
+## 📝 Maiores aprendizados:
 
 - Configurar ambiente de desenvolvimento Java Web com JSF e Maven, gerenciar depências e Persistência de dados com JPA.
 
