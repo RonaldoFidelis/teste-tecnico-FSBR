@@ -85,6 +85,10 @@ Aqui está uma versão aprimorada das instruções:
        ```bash
        startup.bat
        ```
+       ou
+        ```bash
+       .\startup.bat
+       ```
      - No Linux/Mac:
        ```bash
        ./startup.sh
