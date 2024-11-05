@@ -61,66 +61,63 @@
 - **Integração com ViaCep**: Utiliza a API do ViaCep para preencher automaticamente os campos de endereço com base no CEP informado, facilitando o cadastro de clientes.
 Aqui está uma versão aprimorada das instruções:
 
-Aqui está a versão atualizada do seu guia, incluindo as instruções sobre como definir a variável de ambiente `JAVA_HOME`:
+# Como executar o projeto
 
----
-
-### Como executar o projeto:
-
-#### Pré-requisitos
+## Pré-requisitos
 - Java 8 ou superior
 - Banco de dados H2
 - Apache Tomcat 9.0 ou superior
 
-#### Passos para execução:
+## Passos para execução
 
-1. **Instale o Banco de Dados H2**:
+### 1. **Instale o Banco de Dados H2**:
    - Baixe e configure o H2 conforme a [documentação oficial](https://h2database.com/html/main.html).
 
-2. **Instale o Apache Tomcat**:
+### 2. **Instale o Apache Tomcat**:
    - Baixe o Tomcat 9.0 ou superior.
    - Extraia o conteúdo do arquivo baixado em um diretório de sua preferência.
 
-3. **Defina a variável de ambiente `JAVA_HOME`** (CASO NÃO TENHA CONFIGURADO):
-   - Localize o diretório onde o Java está instalado. Em geral, o caminho é algo como `C:\Program Files\Java\jdk1.x.x_xx`.
-   - Siga os passos abaixo para configurar a variável de ambiente:
+### 3. **Abrir o Eclipse**:
+   - Abra o Eclipse no seu workspace.
 
-     - **No Windows**:
-       1. Abra o **Painel de Controle** > **Sistema e Segurança** > **Sistema** > **Configurações avançadas do sistema**.
-       2. Clique em **Variáveis de Ambiente**.
-       3. Em **Variáveis do sistema**, clique em **Novo...** e adicione:
-          - **Nome da variável**: `JAVA_HOME`
-          - **Valor da variável**: o caminho completo do diretório de instalação do JDK (exemplo: `C:\Program Files\Java\jdk1.x.x_xx`).
-       4. Clique em **OK** para salvar.
-     - **No Linux/Mac**:
-       1. Abra o terminal.
-       2. Edite o arquivo de perfil de usuário, como `~/.bashrc` ou `~/.zshrc`:
-          ```bash
-          export JAVA_HOME=/caminho/para/o/jdk
-          export PATH=$JAVA_HOME/bin:$PATH
-          ```
-       3. Salve o arquivo e execute `source ~/.bashrc` (ou `source ~/.zshrc`), para aplicar as mudanças.
+### 4. **Adicionar o Apache Tomcat ao Eclipse**:
+   1. No menu superior, vá até **Window** > **Preferences**.
+   2. No painel à esquerda, expanda **Server** e selecione **Runtime Environments**.
+   3. Clique em **Add External Server...** (Adicionar novo servidor).
+   4. Na lista, selecione **Apache Tomcat v9.0** (ou a versão que você baixou) e clique em **Next**.
+   5. Em **Tomcat installation directory**, clique em **Browse...** e selecione o diretório onde você extraiu o Tomcat.
+   6. Clique em **Finish** para concluir a configuração.
 
-4. **Copie o arquivo .war**:
-   - Coloque o arquivo `.war` do projeto na pasta `webapps` dentro do diretório de instalação do Tomcat.
+### 5. **Definir Tomcat como servidor de execução**:
+   1. Na tela **Servers** (normalmente localizada na parte inferior do Eclipse), clique com o botão direito e selecione **New** > **Server**.
+   2. Selecione a versão do Tomcat que você configurou (exemplo: **Apache Tomcat v9.0**).
+   3. Clique em **Next**.
+   4. Selecione o seu workspace ou o projeto que você deseja executar no Tomcat e clique em **Finish**.
 
-5. **Inicie o Tomcat**:
-   - Acesse o diretório `bin` dentro da pasta do Tomcat e execute o comando de inicialização adequado para o seu sistema operacional:
-     - **No Windows**:
-       ```shell
-       startup.bat
-       ```
-       ou
-       ```shell
-       .\startup.bat
-       ```
-     - **No Linux/Mac**:
-       ```bash
-       ./startup.sh
-       ```
+### 6. **Instale o Java 8 ou superior**:
+   - O projeto foi desenvolvido com o Java 8.
 
-6. **Acesse o Projeto**:
-   - Abra um navegador e acesse o projeto pelo link: `http://localhost:8080/nome-do-arquivo-war`.
+### 7. **Git Clone**:
+   - Faça um **git clone** do projeto em uma pasta de sua preferência.
+
+```bash
+git clone https://github.com/RonaldoFidelis/teste-tecnico-FSBR.git
+```
+
+### 8. **Importar o Projeto Maven no Eclipse**:
+   1. Abra o Eclipse.
+   2. Selecione ou crie um novo workspace.
+   3. Vá para o menu **File** > **Import**.
+   4. Na janela de importação, expanda a opção **Maven**.
+   5. Selecione **Existing Maven Projects** e clique em **Next**.
+   6. Clique em **Browse...** e selecione a pasta onde você clonou ou salvou o projeto Maven.
+   7. O Eclipse deve automaticamente encontrar o arquivo `pom.xml` do projeto Maven.
+   8. Selecione o `pom.xml` e clique em **Finish**.
+
+### 9. **Rodar o Projeto**:
+   1. Vá até a pasta `src > webapp > index.xhtml`.
+   2. Clique com o botão direito em cima do arquivo **index.xhtml**.
+   3. Selecione **Run As** > **Run on Server**.
 
 ## 🚀 Tecnologias utilizadas:
 
