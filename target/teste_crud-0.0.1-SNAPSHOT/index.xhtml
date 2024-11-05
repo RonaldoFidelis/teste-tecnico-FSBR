@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+	<title>Home</title>
+</h:head>
+<h:body
+	style="font-family: Arial, sans-serif;background-color: #f4f4f9;color: #333;margin: 0;padding: 20px;">
+	<div
+		style="margin: 0 auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: center; flex-direction: column; align-items: center;">
+		<h:outputText value="Teste Técnico - C.R.U.D"
+			style="font-size: 3em;font-weight: bold;margin-bottom: 5px;text-align: center;
+		color: #4CAF50;" />
+		<h:outputText value="Página inicial"
+			style="font-size: 1.5em;font-weight: bold;margin-bottom: 20px;text-align: center;
+		color: #4CAF50;" />
+		<div
+			style="display: flex; justify-content: center; gap: 10px; flex-direction: row;">
+			<h:outputLink
+				style="background-color: #4CAF50;color: white;border: none;padding: 10px 20px;border-radius: 5px;
+         cursor: pointer;transition: background-color 0.3s;margin-top:10px;"
+				value="cadastrar.xhtml">Cadastrar clientes</h:outputLink>
+			<h:outputLink
+				style="background-color: #4CAF50;color: white;border: none;padding: 10px 20px;border-radius: 5px;
+         cursor: pointer;transition: background-color 0.3s;margin-top:10px;"
+				value="listar.xhtml">Listar/Deletar/Editar</h:outputLink>
+		</div>
+	</div>
+</h:body>
+</html>

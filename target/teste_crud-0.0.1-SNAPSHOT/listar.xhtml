@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Home</title>
+</h:head>
+<h:body
+	style="font-family: Arial, sans-serif;background-color: #f4f4f9;color: #333;margin: 0;padding: 20px;">
+	<div
+		style="margin: 0 auto; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); display: flex; justify-content: center; flex-direction: column; align-items: center;">
+		<div
+			style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; flex-direction: row; align-items: center;">
+			<h:outputText value="Pesquisar clientes"
+				style="font-size: 2em;font-weight: bold;text-align: center; color: #4CAF50;" />
+			<h:outputLink
+				style="background-color: #4CAF50;color: white;border: none;padding: 10px 20px;border-radius: 5px; cursor: pointer;transition: background-color 0.3s;margin-top:10px;"
+				value="index.xhtml">Home</h:outputLink>
+		</div>
+		<h:form>
+			<div
+				style="display: flex; justify-content: center; flex-direction: row; align-items: center; gap: 5px;">
+				<h:inputText id="pesquisa" value="#{clienteBean.termo}"
+					style="border-radius: 5px; border: 1px solid black; outline: none;height:25px; width:200px;padding-left:4px" />
+				<h:commandButton value="Listar"
+					style="cursor:pointer; border-radius: 5px; border: none; outline: none;height:30px;background-color: #4CAF50;color: white;" />
+			</div>
+			
+			<h:dataTable id="tabelaClientes"
+				value="#{clienteBean.clientesFiltrados}" var="cliente"
+				style="border-collapse: separate; border-spacing: 15px;">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nome" />
+					</f:facet>
+					<h:outputText value="#{cliente.nome}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Email" />
+					</f:facet>
+					<h:outputText value="#{cliente.email}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Telefone" />
+					</f:facet>
+					<h:outputText value="#{cliente.telefone}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Ação" />
+					</f:facet>
+					<h:commandLink value="Editar"
+						style="cursor:pointer; border:none; background-color:blue; color:white; padding:5px;margin-right:5px;"
+						action="#{clienteBean.abrirEdicao(cliente)}" />
+					<h:commandButton value="Deletar"
+						style="cursor:pointer; border:none; background-color:red; color:white; padding:5px;"
+						action="#{clienteBean.excluirCliente(cliente.id)}"
+						onclick="return confirm('Tem certeza que deseja deletar?');"
+						update=":form:tabelaClientes" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+
+		<h:form rendered="#{clienteBean.condicao != false}">
+
+			<h:panelGrid columns="2">
+
+				<h:outputLabel for="nome" value="Nome:" />
+				<h:inputText id="nome" value="#{clienteBean.cliente.nome}"
+					required="true"
+					style="margin-top:5px;border-radius:5px;border:1px solid black;outline:none;height:25px;" />
+
+				<h:outputLabel for="email" value="Email:" />
+				<h:inputText id="email" value="#{clienteBean.cliente.email}"
+					style="margin-top:5px; border-radius:5px;outline:none;height:25px;; border:#{clienteBean.emailValido ? '2px solid red' : '1px solid black'};"
+					required="true" />
+
+				<h:outputLabel for="telefone" value="Telefone:" />
+				<h:inputText id="telefone" value="#{clienteBean.cliente.telefone}"
+					required="true"
+					style="margin-top:5px;border-radius:5px;border:1px solid black;outline:none;height:25px;" />
+
+				<h:outputLabel for="cep" value="CEP:" />
+				<h:inputText id="cep" value="#{clienteBean.cliente.cep}"
+					required="true"
+					style="margin-top:5px;border-radius:5px;border:1px solid black;outline:none;height:25px; "
+					placeholder="xxxx-xxx">
+					<f:validateRegex pattern="[0-9]{5}-[0-9]{3}" />
+					<f:ajax event="blur" listener="#{clienteBean.viaCep}"
+						render="endereco bairro cidade estado" />
+				</h:inputText>
+
+				<h:outputLabel for="endereco" value="Endereço:" />
+				<h:inputText id="endereco" value="#{clienteBean.cliente.endereco}"
+					style="margin-top:5px;border-radius:5px;border:1px solid black;outline:none;height:25px; " />
+
+				<h:outputLabel for="bairro" value="Bairro:" />
+				<h:inputText id="bairro" value="#{clienteBean.cliente.bairro}"
+					style="margin-top:5px;border-radius:5px;border:1px solid black;outline:none;height:25px; " />
+
+				<h:outputLabel for="cidade" value="Cidade:" />
+				<h:inputText id="cidade" value="#{clienteBean.cliente.cidade}"
+					style="margin-top:5px;border-radius:5px;border:1px solid black;outline:none;height:25px; " />
+
+				<h:outputLabel for="estado" value="Estado:" />
+				<h:inputText id="estado" value="#{clienteBean.cliente.estado}"
+					style="margin-top:5px;border-radius:5px;border:1px solid black;outline:none;height:25px; " />
+
+				<h:commandButton value="Salvar"
+					action="#{clienteBean.editarCliente}"
+					style="background-color: #4CAF50;color: white;border: none;padding: 10px 20px;border-radius: 5px;
+                cursor: pointer;transition: background-color 0.3s;width: 100%;margin-top:10px;margin-right:10px;" />
+				<h:commandButton value="Cancelar"
+					action="#{clienteBean.cancelarEdicao}"
+					style="background-color: red;color: white;border: none;padding: 10px 20px;border-radius: 5px;
+                cursor: pointer;transition: background-color 0.3s;width: 100%;margin-top:10px;" />
+			</h:panelGrid>
+		</h:form>
+	</div>
+</h:body>
+</html>

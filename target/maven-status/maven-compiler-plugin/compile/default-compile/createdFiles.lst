@@ -1,0 +1,4 @@
+controlle\ClienteBean.class
+util\JPAUtil.class
+dao\ClienteDao.class
+model\Cliente.class

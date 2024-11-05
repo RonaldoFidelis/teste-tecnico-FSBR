@@ -2,7 +2,6 @@
 
 <br>
 
-[Utilizando CRUD.webm](https://github.com/user-attachments/assets/3e40f8ed-204d-4101-82f7-978a5fb966d6)
 
 <br>
 
@@ -60,14 +59,11 @@
 
 - **Integração com ViaCep**: Utiliza a API do ViaCep para preencher automaticamente os campos de endereço com base no CEP informado, facilitando o cadastro de clientes.
 
-## Como usar:
+## Como executar o projeto:
 
-1. Ambiente Windows 11, JDK 8u431, H2 Database Version 2.3.232, Apache-tomcat-9.0.96, IDE Eclipse EE;
-2. Projeto Maven com servidor TOMCAT 9.0.96;
-3. 
-4. 
-5. 
-6. 
+1. Instale o Tomcat - Extraia o conteúdo em um diretório de sua escolha.;
+3. Copie o arquivo .war para o Tomcat - Copie o arquivo .war para pasta "tomcat/webapps";
+4. Inicie o Tomcat vá até o diretório bin do Tomcat e execute o comando de inicialização apropriado: startup.bat
 
 ## 🚀 Tecnologias utilizadas:
 
