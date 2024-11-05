@@ -2,6 +2,7 @@
 
 <br>
 
+[Utilizando CRUD.webm](https://github.com/user-attachments/assets/cd7a9ad3-23dc-4ae3-9a6d-423fd7bd37b1)
 
 <br>
 
