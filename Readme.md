@@ -61,9 +61,11 @@
 
 ## Como executar o projeto:
 
-1. Instale o Tomcat - Extraia o conteúdo em um diretório de sua escolha.;
+1. Instale o banco de dados H2;
+2. Instale o Tomcat - Extraia o conteúdo em um diretório de sua escolha;
 3. Copie o arquivo .war para o Tomcat - Copie o arquivo .war para pasta "tomcat/webapps";
 4. Inicie o Tomcat vá até o diretório bin do Tomcat e execute o comando de inicialização apropriado: startup.bat
+5. Acesse o projeto pelo: http://localhost:8080/nome-do-arquivo-war
 
 ## 🚀 Tecnologias utilizadas:
 
