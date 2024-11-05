@@ -34,10 +34,10 @@ public class ClienteBean {
 	public void salvar() {
 		if(!clienteDao.checarEmail(cliente.getEmail())) {
 			clienteDao.salvarCliente(cliente);
-			emailValido = true;
+			emailValido = false;
 			this.cliente = new Cliente();
 		} else {
-			emailValido = false;
+			emailValido = true;
 		}
 	}
 
@@ -60,9 +60,11 @@ public class ClienteBean {
 	}
 
 	public void excluirCliente(Long id) {
-		clienteDao.removerCliente(id);
-		listarClientes();
+	    clienteDao.removerCliente(id);
+	    clientesBuscados = clienteDao.buscarCliente();
+	    listarClientes();
 	}
+
 
 	public void abrirEdicao(Cliente c) {
 		condicao = true;
