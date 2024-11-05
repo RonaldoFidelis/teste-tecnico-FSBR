@@ -61,41 +61,66 @@
 - **Integração com ViaCep**: Utiliza a API do ViaCep para preencher automaticamente os campos de endereço com base no CEP informado, facilitando o cadastro de clientes.
 Aqui está uma versão aprimorada das instruções:
 
-## Como executar o projeto:
+Aqui está a versão atualizada do seu guia, incluindo as instruções sobre como definir a variável de ambiente `JAVA_HOME`:
 
-### Pré-requisitos
+---
+
+### Como executar o projeto:
+
+#### Pré-requisitos
 - Java 8 ou superior
 - Banco de dados H2
 - Apache Tomcat 9.0 ou superior
 
-### Passos para execução:
+#### Passos para execução:
 
-1. **Instale o Banco de Dados H2:** Baixe e configure o H2 conforme a documentação oficial.
+1. **Instale o Banco de Dados H2**:
+   - Baixe e configure o H2 conforme a [documentação oficial](https://h2database.com/html/main.html).
 
-2. **Instale o Apache Tomcat:**
+2. **Instale o Apache Tomcat**:
    - Baixe o Tomcat 9.0 ou superior.
    - Extraia o conteúdo do arquivo baixado em um diretório de sua preferência.
 
-3. **Copie o arquivo `.war`:**
+3. **Defina a variável de ambiente `JAVA_HOME`** (CASO NÃO TENHA CONFIGURADO):
+   - Localize o diretório onde o Java está instalado. Em geral, o caminho é algo como `C:\Program Files\Java\jdk1.x.x_xx`.
+   - Siga os passos abaixo para configurar a variável de ambiente:
+
+     - **No Windows**:
+       1. Abra o **Painel de Controle** > **Sistema e Segurança** > **Sistema** > **Configurações avançadas do sistema**.
+       2. Clique em **Variáveis de Ambiente**.
+       3. Em **Variáveis do sistema**, clique em **Novo...** e adicione:
+          - **Nome da variável**: `JAVA_HOME`
+          - **Valor da variável**: o caminho completo do diretório de instalação do JDK (exemplo: `C:\Program Files\Java\jdk1.x.x_xx`).
+       4. Clique em **OK** para salvar.
+     - **No Linux/Mac**:
+       1. Abra o terminal.
+       2. Edite o arquivo de perfil de usuário, como `~/.bashrc` ou `~/.zshrc`:
+          ```bash
+          export JAVA_HOME=/caminho/para/o/jdk
+          export PATH=$JAVA_HOME/bin:$PATH
+          ```
+       3. Salve o arquivo e execute `source ~/.bashrc` (ou `source ~/.zshrc`), para aplicar as mudanças.
+
+4. **Copie o arquivo .war**:
    - Coloque o arquivo `.war` do projeto na pasta `webapps` dentro do diretório de instalação do Tomcat.
 
-4. **Inicie o Tomcat:**
+5. **Inicie o Tomcat**:
    - Acesse o diretório `bin` dentro da pasta do Tomcat e execute o comando de inicialização adequado para o seu sistema operacional:
-     - No Windows:
-       ```bash
+     - **No Windows**:
+       ```shell
        startup.bat
        ```
        ou
-        ```bash
+       ```shell
        .\startup.bat
        ```
-     - No Linux/Mac:
+     - **No Linux/Mac**:
        ```bash
        ./startup.sh
        ```
 
-5. **Acesse o Projeto:**
-   - Abra um navegador e acesse o projeto pelo link: [http://localhost:8080/nome-do-arquivo-war](http://localhost:8080/nome-do-arquivo-war).
+6. **Acesse o Projeto**:
+   - Abra um navegador e acesse o projeto pelo link: `http://localhost:8080/nome-do-arquivo-war`.
 
 ## 🚀 Tecnologias utilizadas:
 
